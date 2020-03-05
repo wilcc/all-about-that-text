@@ -22,8 +22,8 @@ Sorry about getting that stuck in your head!
 ### Features Specifications
 
 * The user can click on any of the five buttons and get the appropriate result printed on the screen. (Feel free to run `npm test` to see the functions needed for each button if you haven't already finished that back-end portion.)
-* The result will be cleared and replaced by any further button clicks by the user.
-* The input box will be cleared of text as soon as a button is pushed.
+* STRETCH GOAL: The result will be cleared and replaced by any further button clicks by the user.
+* STRETCH GOAL: The input box will be cleared of text as soon as a button is pushed.
 
 
 ### Technical Guidelines
@@ -36,8 +36,12 @@ const add = function(x, y) {
 }
 ```
 
-* The back end and front end should be separate files. Make sure they're linked in your html, and in the right order. The names we've picked out our `main.js` for your front-end code and `back-end.js` for the logic functions, but feel free to rename them.
+* The back end and front end should be separate files. Make sure they're linked in your html, and in the right order--code needs to be placed AFTER code it uses, whether that's within a JS file or when loaded into an html file. The names we've picked out our `main.js` for your front-end code and `back-end.js` for the logic functions, but feel free to rename them!
 
+
+### Okay... Little Steps First
+
+1. We need a function that can take in a value and put it on the DOM. 
 
 ### Tips
 
