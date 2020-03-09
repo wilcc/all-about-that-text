@@ -2,7 +2,7 @@
 
 ### Introduction
 
-We'll be making an app that's all about that text. We've been making event listener functions that take in input in two ways: what was clicked, and what's the current state of our app. For this project. the focus will be looking at what was clicked, _and_ what was typed into our input box.
+We've been making event listener functions that take in input in two ways: what was clicked, and what's the current state of our app. For this project. the focus will be looking at what was clicked and what was typed into our input box.
 
 Because we're all about that text, 'bout that text, no pictures.
 
@@ -23,7 +23,7 @@ Sorry about getting that stuck in your head!
 
 * The user can click on any of the five buttons and get the appropriate result printed on the screen. (Feel free to run `npm test` to see the functions needed for each button if you haven't already finished that back-end portion.)
 * The result will be cleared and replaced by any further button clicks by the user.
-* STRETCH GOAL: The input box will be cleared of text as soon as a button is pushed.
+* STRETCH GOAL: The input box will be cleared of text and re-focused as soon as a button is pushed.
 
 
 ### Technical Guidelines
@@ -53,11 +53,11 @@ We'll just place a value we want on the DOM in that function, and then it will w
 This can be done in just four steps:
 
 1. Create a list item. (`document.createElement` if you've forgotten!)
-2. Set the value passed in as a parameter as the text inside that `li` (use `innerText`!).
+2. Set the value passed in as a parameter as the text inside that `li` (use `.innerText`!).
 3. Query the `result` list that we've set aside as a printing area. Check `index.html` to see what query might work!
 4. Append the list item we made to that list.
 
-**IMPORTANT**: test that it works! This is important because we need to know when we're printing later that this part works, or we'll be hunting in two places for any bugs that crop up.
+**IMPORTANT**: test that it works! This is **important** because otherwise if our later functions don't work, we won't be sure the problem is actually IN those functions, and not in this one.
 
 So! Launch your app in your browser (perhaps via VS Code's LiveServer extension?) and, in the dev tools console, call your function with some value (maybe 'hello', maybe 3... could be anything). If it shows up as an `li` on your DOM, you've done it!
 
@@ -94,7 +94,9 @@ For now, let's skip adding event handlers. Let's just make some functions and ca
 3. Grab the text from the input box element. Do some research to find out what property it's in, but I'll tell you that it's NOT in `.innerText`!
 4. Pass that value to the appropriate back-end function for the button the user pressed, which should spit us back out what the user wanted.
 5. Pass that value to our printing helper function.
-6. Stretch goal: clear out the text the user typed in and re-focus the input box. This is nice for the user and also for testing your app; it'll make it much much faster to try different inputs with different buttons. Both will use the input box element, and for the first part, you can use the same property you used to READ the input box's text, but this time you can WRITE to it. For the focus part, there's a method for that; just figure out what it is and then call it!
+6. Stretch goal: clear out the text the user typed in and re-focus the input box. This is nice for the user and also for testing your app; it'll make it much much faster to try different inputs with different buttons. Both will use the input box element, and for the first part, you can use the same property you used to READ the input box's text, but this time you can WRITE to it. For the focus part, there's a method for that; just figure out what it is and then call it! **NOTE**: once again, you COULD reload the page for clearing the input box, but don't do it!
+7. If you completed the previous step, you could add the input-box-focus code to the global scope, so that we also focus the input box when the page loads up. This will be nice for the user but especially nice for the development process, as your live server will be reloading the page all the time, and it'll be nice not to have to find that input box every time!
+
 
 **Testing Your Function**
 
@@ -109,11 +111,17 @@ Now to wire it all up!
 
 ### Last Step: Adding Event Listeners
 
-### Tips
+Home stretch, and the easy part!
 
-* If you're unhappy with our back-end solution and want your own in here, you can move your file from your [Transmogrify](https://github.com/ci-wdi-900/transmogrify) solution straight to this repo, and name it `back-end.js`.
-* Remember that the text in the input box is in the html node's `.value`, NOT `.innerText`.
-* And that it comes in as a string, never a number!
-* You'll need to populate the `results` `ul` with `li`s that you make and give the appropriate text to.
-* There are several different ways to clear the `ul` of its `li`s, but please do not simply cause the page to reload. _That's cheating_, and someday we'll make an app that would break if you do it, so... don't do it.
-* The same goes for clearing the input box, but remember that you can change any property's value, not just read it!
+1. Query the DOM elements for each button.
+2. For each one, add an event listener to its matching function.
+
+**Testing**
+
+Now you can test! Just type in some input to the input box and press the respective button. Fix the inevitable bug or two and you've got it! You did it! You're DONE.
+
+
+### Further Stretch Goals
+
+1. It's kind of weird that this is all presented as one app, isn't there? It's really five seperate. What about giving each button its own input box? You'll have to query a different input box every time, and lay the groundwork in the html. The CSS is already there, though, so you should be able to use the style classes we've already put together!
+2. Make some more buttons. How about one that reverses the order of WORDS in a sentence? How about one that prints out the fibonnaci numbers up to the given number? How about one that counts words in a sentence? How about YOU COME UP WITH YOUR OWN IDEAS FOR ONCE. (Sorry I snapped at you. I love you all.)
