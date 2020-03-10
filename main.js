@@ -29,6 +29,7 @@ const bigText = function(){
     clearResult()
     printValue(biggify(userText.value))
     userText.value=''
+    userText.focus()
 }
 bigButton.addEventListener('click',bigText)
 
@@ -37,6 +38,8 @@ const nasaText = function(){
     clearResult()
     printValue(nasafy(userText.value))
     userText.value=''
+    userText.focus()
+
 }
 nasaButton.addEventListener('click',nasaText)
 
@@ -45,6 +48,8 @@ const reverseText = function(){
     clearResult()
     printValue(reversify(userText.value))
     userText.value=''
+    userText.focus()
+
 }
 reverseButton.addEventListener('click',reverseText)
 const crazyButton = document.querySelector('.crazify')
@@ -52,13 +57,18 @@ const crazyText = function(){
     clearResult()
     printValue(crazify(userText.value))
     userText.value=''
+    userText.focus()
+
 }
 crazyButton.addEventListener('click',crazyText)
+
 const titleButton = document.querySelector('.titleify')
 const titleText = function(){
     clearResult()
     printValue(titleify(userText.value))
     userText.value=''
+    userText.focus()
+
 }
 titleButton.addEventListener('click',titleText)
 // const lis = document.querySelectorAll()
